@@ -1,9 +1,9 @@
 /* Decorative SVGs: mango leaf, Islamic 8-point star, geometric divider */
 
-interface SvgProps { className?: string }
+interface SvgProps { className?: string; style?: React.CSSProperties }
 
-export const MangoLeaf = ({ className = "" }: SvgProps) => (
-  <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden>
+export const MangoLeaf = ({ className = "", style }: SvgProps) => (
+  <svg viewBox="0 0 24 24" className={className} style={style} fill="currentColor" aria-hidden>
     <path d="M12 2C7 2 3 6 3 11c0 5 4 11 9 11s9-6 9-11c0-5-4-9-9-9zm0 2c4 0 7 3 7 7 0 1-.2 2-.5 3L8 7c1.2-1.8 2.5-3 4-3z" />
     <path d="M12 4v16" stroke="currentColor" strokeWidth="0.6" fill="none" opacity="0.4" />
   </svg>
@@ -30,8 +30,8 @@ export const GeometricDivider = ({ className = "" }: SvgProps) => (
 );
 
 /** Stylized mango tree silhouette for hero */
-export const MangoTreeSilhouette = ({ className = "" }: SvgProps) => (
-  <svg viewBox="0 0 200 200" className={className} fill="currentColor" aria-hidden>
+export const MangoTreeSilhouette = ({ className = "", style }: SvgProps) => (
+  <svg viewBox="0 0 200 200" className={className} style={style} fill="currentColor" aria-hidden>
     <ellipse cx="100" cy="80" rx="70" ry="60" opacity="0.9"/>
     <ellipse cx="60" cy="90" rx="40" ry="40" opacity="0.85"/>
     <ellipse cx="140" cy="90" rx="40" ry="40" opacity="0.85"/>

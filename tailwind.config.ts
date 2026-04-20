@@ -13,8 +13,25 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        display: ["'Playfair Display'", "Georgia", "serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
+        earth: {
+          DEFAULT: "hsl(var(--earth))",
+          foreground: "hsl(var(--earth-foreground))",
+        },
+        leaf: {
+          DEFAULT: "hsl(var(--leaf))",
+          soft: "hsl(var(--leaf-soft))",
+        },
+        health: {
+          good: "hsl(var(--health-good))",
+          monitor: "hsl(var(--health-monitor))",
+          attention: "hsl(var(--health-attention))",
+        },
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
@@ -80,6 +97,17 @@ export default {
             height: "0",
           },
         },
+      },
+      backgroundImage: {
+        "gradient-hero": "var(--gradient-hero)",
+        "gradient-leaf": "var(--gradient-leaf)",
+        "gradient-amber": "var(--gradient-amber)",
+        "gradient-cream": "var(--gradient-cream)",
+      },
+      boxShadow: {
+        soft: "var(--shadow-soft)",
+        card: "var(--shadow-card)",
+        deep: "var(--shadow-deep)",
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",

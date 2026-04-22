@@ -9,11 +9,12 @@ import { GeometricDivider, IslamicStar, MangoLeaf, MangoTreeSilhouette, TwelvePo
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, ChevronDown, Droplets, MapPin, QrCode, Ruler, Smartphone, Trees as TreesIcon } from "lucide-react";
+import { ArrowRight, ChevronDown, Droplets, MapPin, QrCode, Ruler, Smartphone, Trees as TreesIcon, Apple, Square } from "lucide-react";
+import gardenEmblem from "@/assets/garden-emblem.png";
 
-const Stat = ({ icon, value, label }: { icon: string; value: string; label: string }) => (
-  <div className="flex flex-col items-center gap-1.5 px-6 min-w-[140px]">
-    <div className="text-2xl">{icon}</div>
+const Stat = ({ Icon, value, label }: { Icon: React.ComponentType<{ className?: string }>; value: string; label: string }) => (
+  <div className="flex flex-col items-center gap-2 px-6 min-w-[140px]">
+    <Icon className="w-6 h-6 text-accent" />
     <div className="font-display text-3xl text-accent font-semibold">{value}</div>
     <div className="text-[11px] uppercase tracking-[0.18em] text-primary-foreground/75 font-sub text-center">{label}</div>
   </div>
@@ -64,6 +65,15 @@ export default function Index() {
 
         <div className="relative z-10 container text-center text-primary-foreground py-20">
           <div className="animate-fade-up">
+            {/* Garden emblem */}
+            <img
+              src={gardenEmblem}
+              alt="Rabeeyunil Awwal Mango Garden emblem"
+              width={1024}
+              height={1024}
+              className="mx-auto w-40 md:w-52 h-auto mb-6 drop-shadow-[0_4px_24px_rgba(0,0,0,0.4)]"
+            />
+
             {/* Bismillah */}
             <p className="font-arabic text-4xl md:text-6xl text-accent gold-glow mb-10 leading-tight" dir="rtl">
               {GARDEN.bismillah}
@@ -103,11 +113,11 @@ export default function Index() {
       <section id="stats" className="bg-primary text-primary-foreground py-10">
         <div className="container overflow-x-auto">
           <div className="flex justify-around items-center gap-4 min-w-[700px] divide-x divide-primary-foreground/15">
-            <Stat icon="🌳" value="104" label="Total Trees" />
-            <Stat icon="🥭" value="Tom JC" label="Mango Variety" />
-            <Stat icon="📐" value="2 Acres" label="Total Area" />
-            <Stat icon="💧" value="Drip" label="Irrigation" />
-            <Stat icon="📏" value="25 ft" label="Tree Spacing" />
+            <Stat Icon={TreesIcon} value="104" label="Total Trees" />
+            <Stat Icon={Apple} value="Tom JC" label="Mango Variety" />
+            <Stat Icon={Square} value="2 Acres" label="Total Area" />
+            <Stat Icon={Droplets} value="Drip" label="Irrigation" />
+            <Stat Icon={Ruler} value="25 ft" label="Tree Spacing" />
           </div>
         </div>
       </section>

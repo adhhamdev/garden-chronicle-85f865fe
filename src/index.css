@@ -49,7 +49,7 @@
 
     --radius: 1rem;                       /* 16px */
 
-    --gradient-hero: linear-gradient(135deg, hsl(152 47% 15%) 0%, hsl(152 41% 22%) 50%, hsl(152 41% 30%) 100%);
+    --gradient-hero: radial-gradient(ellipse at 50% 40%, hsl(152 41% 22%) 0%, hsl(152 47% 13%) 60%, hsl(152 52% 8%) 100%);
     --gradient-gold: linear-gradient(135deg, hsl(47 84% 66%), hsl(43 82% 46%));
     --gradient-cream: linear-gradient(180deg, hsl(41 47% 97%), hsl(41 35% 92%));
     --gradient-leaf: linear-gradient(135deg, hsl(152 47% 15%), hsl(152 41% 30%));

@@ -52,10 +52,8 @@ export default function AdminLogin() {
   return (
     <div className="min-h-screen leaf-pattern flex items-center justify-center px-4 py-12 bg-gradient-cream">
       <div className="w-full max-w-md">
-        <Link to="/" className="flex items-center justify-center gap-2 mb-6 text-primary">
-          <div className="w-10 h-10 rounded-full bg-gradient-leaf flex items-center justify-center text-primary-foreground">
-            <MangoLeaf className="w-5 h-5" />
-          </div>
+        <Link to="/" className="flex items-center justify-center gap-3 mb-6 text-primary">
+          <img src={gardenLogo} alt="Garden logo" width={64} height={64} className="w-12 h-12 object-contain" />
           <div className="font-display text-2xl">{GARDEN.shortName}</div>
         </Link>
         <Card className="p-8 shadow-card border-border/60 relative overflow-hidden">

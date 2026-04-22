@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
-import { MangoLeaf } from "./Decorations";
 import { LogOut, Menu, ShieldCheck, X } from "lucide-react";
+import gardenLogo from "@/assets/garden-logo.png";
 
 const navItems = [
   { to: "/", label: "Home" },
@@ -22,9 +22,13 @@ export const SiteHeader = () => {
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border/50">
       <div className="container flex items-center justify-between h-16">
         <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 rounded-full bg-gradient-leaf flex items-center justify-center text-primary-foreground shadow-soft">
-            <MangoLeaf className="w-5 h-5" />
-          </div>
+          <img
+            src={gardenLogo}
+            alt="Rabeeyunil Awwal Mango Garden logo"
+            width={64}
+            height={64}
+            className="w-10 h-10 object-contain"
+          />
           <div className="leading-tight">
             <div className="font-display text-lg font-semibold text-primary">Rabeeyunil Awwal</div>
             <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-sub">Mango Garden</div>

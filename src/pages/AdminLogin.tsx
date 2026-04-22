@@ -7,7 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { toast } from "sonner";
-import { MangoLeaf, IslamicStar } from "@/components/Decorations";
+import { IslamicStar } from "@/components/Decorations";
+import gardenLogo from "@/assets/garden-logo.png";
 import { GARDEN } from "@/lib/garden";
 
 export default function AdminLogin() {

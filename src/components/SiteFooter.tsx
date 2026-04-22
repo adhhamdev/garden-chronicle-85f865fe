@@ -1,15 +1,20 @@
 import { GARDEN } from "@/lib/garden";
-import { TwelvePointStar, MangoLeaf } from "./Decorations";
+import gardenLogo from "@/assets/garden-logo.png";
 
 export const SiteFooter = () => (
   <footer className="bg-primary text-primary-foreground pt-16 pb-8 mt-16">
     <div className="container">
       <div className="grid md:grid-cols-3 gap-10 items-start">
         <div>
-          <div className="flex items-center gap-2.5 mb-4">
-            <div className="w-9 h-9 rounded-full bg-accent/20 flex items-center justify-center text-accent">
-              <MangoLeaf className="w-5 h-5" />
-            </div>
+          <div className="flex items-center gap-3 mb-4">
+            <img
+              src={gardenLogo}
+              alt="Rabeeyunil Awwal Mango Garden logo"
+              width={64}
+              height={64}
+              className="w-12 h-12 object-contain"
+              loading="lazy"
+            />
             <span className="font-display text-2xl">{GARDEN.shortName}</span>
           </div>
           <p className="text-primary-foreground/70 text-sm leading-relaxed font-sub">{GARDEN.location}</p>
@@ -17,7 +22,15 @@ export const SiteFooter = () => (
         </div>
 
         <div className="flex justify-center">
-          <TwelvePointStar className="w-24 h-24 text-accent opacity-80" />
+          <img
+            src={gardenLogo}
+            alt=""
+            width={128}
+            height={128}
+            aria-hidden
+            className="w-24 h-24 object-contain opacity-90"
+            loading="lazy"
+          />
         </div>
 
         <div className="md:text-right">

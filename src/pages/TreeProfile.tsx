@@ -1,41 +1,8 @@
-import { useEffect, useRef, useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
-import { useAuth } from "@/hooks/useAuth";
-import {
-  type Tree,
-  type TreeUpdate,
-  type HealthStatus,
-  healthBadge,
-  healthLabel,
-  formatDate,
-  GARDEN,
-  getAdjacentTreeIds,
-} from "@/lib/garden";
-import { SiteHeader } from "@/components/SiteHeader";
-import { SiteFooter } from "@/components/SiteFooter";
-import { GeometricDivider } from "@/components/Decorations";
 import gardenLogo from "@/assets/garden-logo.png";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { GeometricDivider } from "@/components/Decorations";
+import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -44,9 +11,38 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { QRCodeSVG } from "qrcode.react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import { useAuth } from "@/hooks/useAuth";
+import { supabase } from "@/integrations/supabase/client";
+import {
+  type HealthStatus,
+  type Tree,
+  type TreeUpdate,
+  formatDate,
+  GARDEN,
+  getAdjacentTreeIds,
+  healthBadge,
+  healthLabel,
+} from "@/lib/garden";
 import html2canvas from "html2canvas";
-import { toast } from "sonner";
 import {
   ArrowLeft,
   ArrowRight,
@@ -60,6 +56,10 @@ import {
   Ruler,
   Sprout,
 } from "lucide-react";
+import { QRCodeSVG } from "qrcode.react";
+import { useEffect, useRef, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { toast } from "sonner";
 
 export default function TreeProfile() {
   const { id } = useParams();
@@ -121,7 +121,7 @@ export default function TreeProfile() {
         })();
       meta.setAttribute(
         "content",
-        `Tree ${tree.id} (${tree.line_position}) — Tom JC mango tree profile, photos, health logs and harvest record at Rabeeyunil Awwal Mango Garden.`
+        `Tree ${tree.id} (${tree.line_position}) - Tom JC mango tree profile, photos, health logs and harvest record at Rabeeyunil Awwal Mango Garden.`
       );
     }
   }, [tree]);
@@ -199,9 +199,8 @@ export default function TreeProfile() {
       await supabase.from("tree_updates").insert({
         tree_id: tree.id,
         update_type: "measurement",
-        note: `Specs updated · Height: ${height || "—"} · Canopy: ${
-          canopy || "—"
-        } · Health: ${healthStatus}`,
+        note: `Specs updated · Height: ${height || "-"} · Canopy: ${canopy || "-"
+          } · Health: ${healthStatus}`,
         created_by: user!.id,
       });
       toast.success("Specifications updated");
@@ -435,8 +434,8 @@ export default function TreeProfile() {
                   ["Position", <span className="font-mono">{tree.line_position}</span>],
                   ["Variety", tree.variety],
                   ["Planting date", formatDate(tree.planting_date)],
-                  ["Current height", tree.height ?? "—"],
-                  ["Canopy diameter", tree.canopy_diameter ?? "—"],
+                  ["Current height", tree.height ?? "-"],
+                  ["Canopy diameter", tree.canopy_diameter ?? "-"],
                   ["Irrigation", GARDEN.irrigation],
                   ["Spacing", GARDEN.spacing],
                 ] as [string, React.ReactNode][]
@@ -461,7 +460,7 @@ export default function TreeProfile() {
               <div className="border-2 border-dashed border-border rounded-2xl py-14 text-center text-muted-foreground bg-muted/30">
                 <ImageIcon className="w-10 h-10 mx-auto mb-3 opacity-40" />
                 <p className="text-sm">
-                  No photos yet — this tree's story is just beginning 🌱
+                  No photos yet - this tree's story is just beginning 🌱
                 </p>
               </div>
             ) : (
@@ -572,7 +571,7 @@ export default function TreeProfile() {
                   ["Expected fruit weight", "500g – 600g per fruit"],
                   [
                     "Actual yield (Season 1)",
-                    tree.actual_yield ? `${tree.actual_yield} mangoes` : "— (not yet)",
+                    tree.actual_yield ? `${tree.actual_yield} mangoes` : "- (not yet)",
                   ],
                 ] as [string, React.ReactNode][]
               ).map(([k, v], i) => (
@@ -634,7 +633,7 @@ export default function TreeProfile() {
             </p>
 
             <div className="flex flex-col lg:flex-row gap-8 items-start">
-              {/* Printable card — 800x400 (2:1) at display scale */}
+              {/* Printable card - 800x400 (2:1) at display scale */}
               <div
                 ref={qrCardRef}
                 className="bg-background border-2 border-primary/20 rounded-2xl shadow-card overflow-hidden flex"
@@ -746,6 +745,14 @@ export default function TreeProfile() {
           </Button>
         </nav>
       </main>
+      <div className="container pb-16">
+        <div className="pt-16 border-t border-accent/20 text-center animate-fade-up">
+          <p className="font-arabic text-2xl text-accent mb-2" dir="rtl">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّdٍ</p>
+          <p className="text-xs italic text-muted-foreground font-sub max-w-xs mx-auto text-balance">
+            "O Allah, send blessings upon Muhammad and the family of Muhammad"
+          </p>
+        </div>
+      </div>
       <SiteFooter />
     </div>
   );

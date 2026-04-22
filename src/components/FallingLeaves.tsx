@@ -18,7 +18,7 @@ const MangoFruit = ({ className = "" }: { className?: string }) => (
   </svg>
 );
 
-/** Pure-CSS falling mangoes — rendered absolutely inside a relative parent */
+/** Pure-CSS falling mangoes - rendered absolutely inside a relative parent */
 export const FallingLeaves = () => {
   const mangoes = [
     { left: "5%", size: 22, dur: 16, delay: 0, rot: 20 },

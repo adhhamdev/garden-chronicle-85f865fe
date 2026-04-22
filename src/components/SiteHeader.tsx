@@ -1,9 +1,9 @@
+import gardenLogo from "@/assets/garden-logo.png";
+import { Button } from "@/components/ui/button";
+import { useAuth } from "@/hooks/useAuth";
+import { LogOut, Menu, ShieldCheck, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useAuth } from "@/hooks/useAuth";
-import { Button } from "@/components/ui/button";
-import { LogOut, Menu, ShieldCheck, X } from "lucide-react";
-import gardenLogo from "@/assets/garden-logo.png";
 
 const navItems = [
   { to: "/", label: "Home" },
@@ -30,7 +30,7 @@ export const SiteHeader = () => {
             className="w-10 h-10 object-contain"
           />
           <div className="leading-tight">
-            <div className="font-display text-lg font-semibold text-primary">Rabeeyunil Awwal</div>
+            <div className="font-heading-arabic text-lg font-semibold text-primary">Rabeeyunil Awwal</div>
             <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-sub">Mango Garden</div>
           </div>
         </Link>

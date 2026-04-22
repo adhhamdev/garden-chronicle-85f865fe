@@ -1,16 +1,16 @@
+import gardenLogo from "@/assets/garden-logo.png";
+import { GeometricDivider, Mango } from "@/components/Decorations";
+import { FallingLeaves } from "@/components/FallingLeaves";
+import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { supabase } from "@/integrations/supabase/client";
+import { GARDEN, LINES, type Tree, formatDateShort, healthBadge, healthDot } from "@/lib/garden";
+import { ArrowRight, ChevronDown, Droplets, MapPin, QrCode, Ruler, Smartphone, Square, Trees as TreesIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
-import { GARDEN, LINES, type Tree, healthBadge, healthDot, formatDateShort } from "@/lib/garden";
-import { SiteHeader } from "@/components/SiteHeader";
-import { SiteFooter } from "@/components/SiteFooter";
-import { FallingLeaves } from "@/components/FallingLeaves";
-import { GeometricDivider, IslamicStar, TwelvePointStar } from "@/components/Decorations";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { ArrowRight, ChevronDown, Droplets, MapPin, QrCode, Ruler, Smartphone, Trees as TreesIcon, Apple, Square } from "lucide-react";
-import gardenLogo from "@/assets/garden-logo.png";
 
 const Stat = ({ Icon, value, label }: { Icon: React.ComponentType<{ className?: string }>; value: string; label: string }) => (
   <div className="flex flex-col items-center gap-2 px-6 min-w-[140px]">
@@ -27,9 +27,9 @@ export default function Index() {
   useEffect(() => {
     document.title = "Rabeeyunil Awwal Mango Garden · 104 Tom JC Trees, Hambantota";
     const meta = document.querySelector('meta[name="description"]') ?? (() => {
-      const m = document.createElement("meta"); m.setAttribute("name","description"); document.head.appendChild(m); return m;
+      const m = document.createElement("meta"); m.setAttribute("name", "description"); document.head.appendChild(m); return m;
     })();
-    meta.setAttribute("content", "A living digital record of 104 Tom JC mango trees in Hambantota, Sri Lanka. Founded in Rabeeyunil Awwal — the blessed month of the Prophet's ﷺ birth.");
+    meta.setAttribute("content", "A living digital record of 104 Tom JC mango trees in Hambantota, Sri Lanka. Founded in Rabeeyunil Awwal - the blessed month of the Prophet's ﷺ birth.");
 
     supabase.from("trees").select("*").order("id").then(({ data }) => {
       if (data) {
@@ -41,7 +41,7 @@ export default function Index() {
 
   const treesByLine: Record<string, Tree[]> = {};
   trees.forEach(t => { (treesByLine[t.line] ||= []).push(t); });
-  Object.values(treesByLine).forEach(arr => arr.sort((a,b) => a.position - b.position));
+  Object.values(treesByLine).forEach(arr => arr.sort((a, b) => a.position - b.position));
 
   return (
     <div className="min-h-screen bg-background">
@@ -66,12 +66,17 @@ export default function Index() {
             />
 
             {/* Bismillah */}
-            <p className="font-arabic text-4xl md:text-6xl text-accent gold-glow mb-10 leading-tight" dir="rtl">
+            <p className="font-arabic text-3xl md:text-5xl text-accent gold-glow mb-2 leading-tight" dir="rtl">
               {GARDEN.bismillah}
             </p>
 
+            {/* Salawat */}
+            <p className="font-arabic text-xl md:text-2xl text-accent/80 mb-10 leading-tight" dir="rtl">
+              اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ
+            </p>
+
             {/* Garden name */}
-            <h1 className="font-display font-semibold text-balance leading-[1.05]" style={{ fontSize: "clamp(3rem, 8vw, 6rem)" }}>
+            <h1 className="font-heading-arabic font-semibold text-balance leading-[1.05]" style={{ fontSize: "clamp(3rem, 8vw, 6.5rem)" }}>
               Rabeeyunil Awwal
               <span className="block text-accent mt-1">Mango Garden</span>
             </h1>
@@ -103,9 +108,9 @@ export default function Index() {
       {/* STATS BAR */}
       <section id="stats" className="bg-primary text-primary-foreground py-10">
         <div className="container overflow-x-auto">
-          <div className="flex justify-around items-center gap-4 min-w-[700px] divide-x divide-primary-foreground/15">
+          <div className="flex justify-center items-center gap-10 md:gap-16 min-w-[700px]">
             <Stat Icon={TreesIcon} value="104" label="Total Trees" />
-            <Stat Icon={Apple} value="Tom JC" label="Mango Variety" />
+            <Stat Icon={Mango} value="Tom JC" label="Mango Variety" />
             <Stat Icon={Square} value="2 Acres" label="Total Area" />
             <Stat Icon={Droplets} value="Drip" label="Irrigation" />
             <Stat Icon={Ruler} value="25 ft" label="Tree Spacing" />
@@ -116,7 +121,7 @@ export default function Index() {
       {/* ABOUT */}
       <section id="about" className="py-24 leaf-pattern">
         <div className="container">
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="flex items-center justify-center text-center">
             <div className="animate-fade-up">
               <div className="text-xs uppercase tracking-[0.3em] text-accent mb-4 font-sub">The Garden</div>
               <h2 className="font-display text-4xl md:text-5xl text-primary leading-tight mb-6">
@@ -124,7 +129,7 @@ export default function Index() {
               </h2>
               <div className="space-y-4 text-muted-foreground text-base leading-relaxed">
                 <p>
-                  This garden was founded and named after <strong className="text-primary">Rabeeyunil Awwal</strong> — the month in the Islamic calendar when our beloved Prophet Muhammad ﷺ was born. The naming is an act of love and devotion, a reminder that every fruit grown here is grown under blessed intention.
+                  This garden was founded and named after <strong className="text-primary">Rabeeyunil Awwal</strong> - the month in the Islamic calendar when our beloved Prophet Muhammad ﷺ was born. The naming is an act of love and devotion, a reminder that every fruit grown here is grown under blessed intention.
                 </p>
                 <p>
                   Established on <strong className="text-primary">28 August 2025</strong>, the garden spans 2 acres of land in Keliyapura, Hambantota, Sri Lanka. It houses <strong className="text-primary">104 Tom JC mango trees</strong>, each planted with care and tracked individually.
@@ -133,27 +138,15 @@ export default function Index() {
                   The garden is structured into <strong className="text-primary">7 lines (A1–A7)</strong> with 25-foot spacing around each tree, fed by a modern drip irrigation system to ensure consistent growth. Each tree carries a unique ID from <span className="font-mono text-primary">RAMG-1501</span> to <span className="font-mono text-primary">RAMG-1604</span>.
                 </p>
                 <p>
-                  Every tree in this garden has its own digital record — a living document that grows with the tree, capturing its health, maintenance history, and eventual harvest. Scan any tree's QR code to access its complete profile instantly.
+                  Every tree in this garden has its own digital record - a living document that grows with the tree, capturing its health (bi'iznillah), maintenance history, and eventual harvest. Scan any tree's QR code to access its complete profile instantly.
                 </p>
+                <div className="pt-6 border-t border-accent/20 mt-8">
+                  <p className="font-arabic text-2xl text-accent mb-2" dir="rtl">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ</p>
+                  <p className="text-sm italic text-muted-foreground font-sub text-balance">
+                    "O Allah, send blessings upon Muhammad and the family of Muhammad"
+                  </p>
+                </div>
               </div>
-            </div>
-
-            {/* Decorative logo with Islamic frame */}
-            <div className="relative aspect-square max-w-md mx-auto">
-              <div className="absolute inset-0 rounded-3xl border-2 border-accent/30 rotate-45" />
-              <div className="absolute inset-4 rounded-3xl border border-accent/20" />
-              <div className="absolute inset-0 flex items-center justify-center p-10">
-                <img
-                  src={gardenLogo}
-                  alt="Rabeeyunil Awwal Mango Garden logo"
-                  width={1024}
-                  height={1024}
-                  className="w-3/4 h-3/4 object-contain animate-float"
-                  loading="lazy"
-                />
-              </div>
-              <IslamicStar className="absolute -top-2 -left-2 w-12 h-12 text-accent" />
-              <IslamicStar className="absolute -bottom-2 -right-2 w-12 h-12 text-accent" />
             </div>
           </div>
         </div>
@@ -227,7 +220,7 @@ export default function Index() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { Icon: TreesIcon, title: "Find the Tree", desc: "Every tree in the garden has a laminated QR code label placed near its base." },
-              { Icon: Smartphone, title: "Scan the Code", desc: "Scan with any phone camera — no app needed." },
+              { Icon: Smartphone, title: "Scan the Code", desc: "Scan with any phone camera - no app needed." },
               { Icon: QrCode, title: "View Full Record", desc: "See the tree's complete profile: health, photos, maintenance history, yield expectations." },
             ].map(({ Icon, title, desc }, i) => (
               <Card key={title} className="p-8 text-center border-border/60 shadow-soft hover-scale" style={{ animationDelay: `${i * 0.1}s` }}>
@@ -254,8 +247,8 @@ export default function Index() {
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground px-4 py-1 rounded-full text-[10px] uppercase tracking-[0.2em] font-sub font-medium">
                 Featured · Seed Tree
               </div>
-              <div className="grid md:grid-cols-3 gap-6 items-center">
-                <div className="md:col-span-2">
+              <div className="flex gap-6 items-center">
+                <div>
                   <div className="flex flex-wrap items-center gap-3 mb-4">
                     <Badge variant="outline" className="font-mono border-primary/20 text-primary">{featured.id}</Badge>
                     <Badge className="bg-accent/15 text-accent-foreground border border-accent/30 font-sub">Line {featured.line_position}</Badge>
@@ -264,16 +257,13 @@ export default function Index() {
                   <h3 className="font-display text-3xl md:text-4xl text-primary mb-4">Tom JC · A1 Position 01</h3>
                   <dl className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm font-sub">
                     <dt className="text-muted-foreground">Planting date</dt><dd className="font-medium">{formatDateShort(featured.planting_date)}</dd>
-                    <dt className="text-muted-foreground">Current height</dt><dd className="font-medium">{featured.height ?? "—"}</dd>
+                    <dt className="text-muted-foreground">Current height</dt><dd className="font-medium">{featured.height ?? "-"}</dd>
                     <dt className="text-muted-foreground">Yield expected</dt><dd className="font-medium">{featured.yield_expectation}</dd>
                     <dt className="text-muted-foreground">First harvest</dt><dd className="font-medium">{GARDEN.firstHarvest}</dd>
                   </dl>
                   <Button asChild className="mt-6 bg-primary hover:bg-primary/90 rounded-full font-sub">
                     <Link to={`/tree/${featured.id}`}>View this tree's full record <ArrowRight className="w-4 h-4 ml-1.5" /></Link>
                   </Button>
-                </div>
-                <div className="hidden md:flex justify-center">
-                  <TwelvePointStar className="w-32 h-32 text-accent/60" />
                 </div>
               </div>
             </Card>

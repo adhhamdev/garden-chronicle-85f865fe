@@ -14,7 +14,6 @@ import { GARDEN } from "@/lib/garden";
 export default function AdminLogin() {
   const nav = useNavigate();
   const { user, isAdmin } = useAuth();
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -28,20 +27,10 @@ export default function AdminLogin() {
     e.preventDefault();
     setLoading(true);
     try {
-      if (mode === "signup") {
-        const { error } = await supabase.auth.signUp({
-          email, password,
-          options: { emailRedirectTo: `${window.location.origin}/admin/dashboard` }
-        });
-        if (error) throw error;
-        toast.success("Account created. You can sign in now.");
-        setMode("signin");
-      } else {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) throw error;
-        toast.success("Welcome back");
-        nav("/admin/dashboard");
-      }
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) throw error;
+      toast.success("Welcome back");
+      nav("/admin/dashboard");
     } catch (err: any) {
       toast.error(err.message ?? "Authentication failed");
     } finally {
@@ -58,11 +47,9 @@ export default function AdminLogin() {
         </Link>
         <Card className="p-8 shadow-card border-border/60 relative overflow-hidden">
           <IslamicStar className="absolute -top-4 -right-4 w-20 h-20 text-accent/15" />
-          <h1 className="font-display text-3xl text-primary mb-1 relative">{mode === "signin" ? "Admin sign in" : "Create admin account"}</h1>
+          <h1 className="font-display text-3xl text-primary mb-1 relative">Admin sign in</h1>
           <p className="text-sm text-muted-foreground mb-6 font-sub relative">
-            {mode === "signin"
-              ? "Sign in to add updates, photos and logs."
-              : "The first registered user becomes the garden administrator."}
+            Sign in to add updates, photos and logs.
           </p>
           <form onSubmit={submit} className="space-y-4 relative">
             <div className="space-y-1.5">
@@ -74,16 +61,9 @@ export default function AdminLogin() {
               <Input id="password" type="password" required minLength={6} value={password} onChange={e => setPassword(e.target.value)} />
             </div>
             <Button type="submit" className="w-full bg-primary hover:bg-primary/90 rounded-full font-sub" disabled={loading}>
-              {loading ? "Please wait…" : mode === "signin" ? "Sign in" : "Create account"}
+              {loading ? "Please wait…" : "Sign in"}
             </Button>
           </form>
-          <button
-            type="button"
-            onClick={() => setMode(mode === "signin" ? "signup" : "signin")}
-            className="mt-4 text-sm text-muted-foreground hover:text-primary w-full text-center font-sub"
-          >
-            {mode === "signin" ? "First time here? Create the admin account →" : "Already have an account? Sign in →"}
-          </button>
         </Card>
       </div>
     </div>

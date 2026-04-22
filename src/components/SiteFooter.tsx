@@ -1,5 +1,5 @@
-import { GARDEN } from "@/lib/garden";
 import gardenLogo from "@/assets/garden-logo.png";
+import { GARDEN } from "@/lib/garden";
 
 export const SiteFooter = () => (
   <footer className="bg-primary text-primary-foreground pt-16 pb-8 mt-16">
@@ -21,21 +21,25 @@ export const SiteFooter = () => (
           <p className="text-primary-foreground/55 text-xs mt-3 font-sub">Established {GARDEN.established}</p>
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex flex-col items-center justify-center text-center px-4">
+          <p className="font-arabic text-2xl text-accent mb-2" dir="rtl">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ</p>
+          <p className="text-[10px] uppercase tracking-widest text-primary-foreground/60 font-sub max-w-xs leading-relaxed">
+            "O Allah, send blessings upon Muhammad and the family of Muhammad"
+          </p>
           <img
             src={gardenLogo}
             alt=""
             width={128}
             height={128}
             aria-hidden
-            className="w-24 h-24 object-contain opacity-90"
+            className="w-16 h-16 object-contain opacity-50 mt-6"
             loading="lazy"
           />
         </div>
 
         <div className="md:text-right">
           <p className="font-display text-xl text-accent-light italic mb-2">Built with care for every tree ﷺ</p>
-          <p className="text-primary-foreground/60 text-xs font-sub">A living digital record — updated as the garden grows.</p>
+          <p className="text-primary-foreground/60 text-xs font-sub">A living digital record - updated as the garden grows.</p>
         </div>
       </div>
 

@@ -78,7 +78,7 @@ export default function Garden() {
           </nav>
           <h1 className="font-display text-5xl md:text-7xl">The Garden</h1>
           <p className="font-sub text-primary-foreground/80 mt-3 max-w-xl">
-            104 Tom JC mango trees, organised in seven lines, growing under blessed care in Hambantota.
+            104 Tom JC mango trees, organised in seven lines, growing under the blessed care and legacy of Prophet Muhammad ﷺ.
           </p>
         </div>
       </section>
@@ -116,6 +116,13 @@ export default function Garden() {
               })}
             </div>
           </Card>
+          
+          <div className="mt-16 text-center animate-fade-up">
+            <p className="font-arabic text-2xl text-accent mb-2" dir="rtl">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ</p>
+            <p className="text-xs italic text-muted-foreground font-sub max-w-md mx-auto">
+              "O Allah, send blessings upon Muhammad and the family of Muhammad"
+            </p>
+          </div>
         </div>
       </section>
 

@@ -9,6 +9,22 @@ export const MangoLeaf = ({ className = "", style }: SvgProps) => (
   </svg>
 );
 
+export const Mango = ({ className = "" }: SvgProps) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    aria-hidden
+  >
+    <path d="M12 2c.5 2 1.5 3 1.5 3" />
+    <path d="M13.5 5C10 5 6 8 6 13s4 9 7 9 7-4 7-9-3.5-8-6.5-8z" />
+  </svg>
+);
+
 export const IslamicStar = ({ className = "" }: SvgProps) => (
   <svg viewBox="0 0 100 100" className={className} fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden>
     <polygon points="50,5 61,28 86,28 67,45 75,70 50,55 25,70 33,45 14,28 39,28" opacity="0.8"/>

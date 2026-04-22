@@ -1,37 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Rabeeyunil Awwal Mango Garden — Sacred + Natural + Premium Agricultural */
+/* Rabeeyunil Awwal Mango Garden - Sacred + Natural + Premium Agricultural */
 
 @layer base {
   :root {
-    --background: 41 47% 96%;            /* warm cream #FAF7F0 */
-    --foreground: 0 0% 10%;              /* #1A1A1A */
+    --background: 41 47% 96%; /* warm cream #FAF7F0 */
+    --foreground: 0 0% 10%; /* #1A1A1A */
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
 
-    --primary: 152 47% 15%;              /* deep forest green #1B4332 */
+    --primary: 152 47% 15%; /* deep forest green #1B4332 */
     --primary-foreground: 41 47% 96%;
 
-    --primary-mid: 152 41% 30%;          /* #2D6A4F */
+    --primary-mid: 152 41% 30%; /* #2D6A4F */
 
     --secondary: 41 35% 92%;
     --secondary-foreground: 152 47% 15%;
 
     --muted: 41 30% 90%;
-    --muted-foreground: 215 19% 35%;     /* #4A5568 */
+    --muted-foreground: 215 19% 35%; /* #4A5568 */
 
-    --accent: 43 82% 46%;                /* warm Islamic gold #D4A017 */
+    --accent: 43 82% 46%; /* warm Islamic gold #D4A017 */
     --accent-foreground: 152 47% 15%;
-    --accent-light: 47 84% 66%;          /* #F0D060 */
+    --accent-light: 47 84% 66%; /* #F0D060 */
 
-    --sage: 105 28% 70%;                 /* #A8C5A0 */
+    --sage: 105 28% 70%; /* #A8C5A0 */
     --sage-foreground: 152 47% 15%;
 
     --health-good: 152 50% 35%;
@@ -43,20 +43,29 @@
     --destructive: 0 70% 45%;
     --destructive-foreground: 41 47% 96%;
 
-    --border: 38 30% 84%;                /* #E2D9C8 */
+    --border: 38 30% 84%; /* #E2D9C8 */
     --input: 38 30% 84%;
     --ring: 152 47% 15%;
 
-    --radius: 1rem;                       /* 16px */
+    --radius: 1rem; /* 16px */
 
-    --gradient-hero: radial-gradient(ellipse at 50% 40%, hsl(152 41% 22%) 0%, hsl(152 47% 13%) 60%, hsl(152 52% 8%) 100%);
+    --gradient-hero: radial-gradient(
+      ellipse at 50% 40%,
+      hsl(152 41% 22%) 0%,
+      hsl(152 47% 13%) 60%,
+      hsl(152 52% 8%) 100%
+    );
     --gradient-gold: linear-gradient(135deg, hsl(47 84% 66%), hsl(43 82% 46%));
     --gradient-cream: linear-gradient(180deg, hsl(41 47% 97%), hsl(41 35% 92%));
-    --gradient-leaf: linear-gradient(135deg, hsl(152 47% 15%), hsl(152 41% 30%));
+    --gradient-leaf: linear-gradient(
+      135deg,
+      hsl(152 47% 15%),
+      hsl(152 41% 30%)
+    );
 
     --shadow-soft: 0 2px 12px -2px hsl(152 47% 15% / 0.08);
     --shadow-card: 0 8px 32px -12px hsl(152 47% 15% / 0.16);
-    --shadow-deep: 0 20px 60px -20px hsl(152 47% 15% / 0.30);
+    --shadow-deep: 0 20px 60px -20px hsl(152 47% 15% / 0.3);
     --shadow-gold-glow: 0 0 40px hsl(43 82% 46% / 0.35);
 
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -93,26 +102,50 @@
 }
 
 @layer base {
-  * { @apply border-border; }
-  html { scroll-behavior: smooth; }
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, sans-serif;
   }
-  h1, h2, h3, h4, h5, .font-display {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  .font-display {
     font-family: 'Cormorant Garamond', Georgia, serif;
     letter-spacing: -0.01em;
   }
 }
 
 @layer utilities {
-  .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
-  .font-sub { font-family: 'DM Sans', system-ui, sans-serif; }
-  .font-body { font-family: 'Inter', system-ui, sans-serif; }
-  .font-mono { font-family: 'JetBrains Mono', monospace; }
-  .font-arabic { font-family: 'Noto Naskh Arabic', serif; }
+  .font-display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+  .font-sub {
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+  .font-body {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .font-arabic {
+    font-family: 'Noto Naskh Arabic', serif;
+  }
+  .font-heading-arabic {
+    font-family: 'Amiri', serif;
+  }
 
-  .text-balance { text-wrap: balance; }
+  .text-balance {
+    text-wrap: balance;
+  }
 
   .gold-glow {
     text-shadow:
@@ -123,32 +156,62 @@
   /* Islamic geometric pattern background */
   .geo-pattern {
     background-image:
-      radial-gradient(circle at 50% 50%, hsl(var(--accent) / 0.04) 1px, transparent 1px),
-      radial-gradient(circle at 0% 0%, hsl(var(--accent) / 0.03) 1px, transparent 1px);
-    background-size: 40px 40px, 40px 40px;
-    background-position: 0 0, 20px 20px;
+      radial-gradient(
+        circle at 50% 50%,
+        hsl(var(--accent) / 0.04) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        circle at 0% 0%,
+        hsl(var(--accent) / 0.03) 1px,
+        transparent 1px
+      );
+    background-size:
+      40px 40px,
+      40px 40px;
+    background-position:
+      0 0,
+      20px 20px;
   }
 
   .leaf-pattern {
     background-image:
-      radial-gradient(circle at 20% 30%, hsl(152 47% 15% / 0.04) 0, transparent 40%),
-      radial-gradient(circle at 80% 70%, hsl(43 82% 46% / 0.05) 0, transparent 40%);
+      radial-gradient(
+        circle at 20% 30%,
+        hsl(152 47% 15% / 0.04) 0,
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 80% 70%,
+        hsl(43 82% 46% / 0.05) 0,
+        transparent 40%
+      );
   }
 
   .animate-fade-up {
     animation: fadeUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
   }
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .animate-fade-in {
     animation: fadeIn 0.6s ease-out both;
   }
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   .animate-count {
@@ -159,19 +222,31 @@
     animation: float 6s ease-in-out infinite;
   }
   @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
   }
 
   .animate-bounce-slow {
     animation: bounceSlow 2.4s ease-in-out infinite;
   }
   @keyframes bounceSlow {
-    0%, 100% { transform: translateY(0); opacity: 0.6; }
-    50% { transform: translateY(8px); opacity: 1; }
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translateY(8px);
+      opacity: 1;
+    }
   }
 
-  /* Falling mango leaves — pure CSS */
+  /* Falling mango leaves - pure CSS */
   .leaves-container {
     position: absolute;
     inset: 0;
@@ -187,10 +262,20 @@
     will-change: transform;
   }
   @keyframes leaf-fall {
-    0% { transform: translateY(-40px) translateX(0) rotate(0deg); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateY(110vh) translateX(60px) rotate(720deg); opacity: 0; }
+    0% {
+      transform: translateY(-40px) translateX(0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(110vh) translateX(60px) rotate(720deg);
+      opacity: 0;
+    }
   }
 
   .hover-scale {
